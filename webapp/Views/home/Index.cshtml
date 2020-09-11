@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bienvenido al Sistema de Firmas Electronicas: @Session["usuario"].ToString()</h2>
+
+@Html.ActionLink("Operaciones", "nuevaOrdenCompra", "operacion") <p></p>
+@Html.ActionLink("Firmados", "verFirmados", "operacion") <p></p>
+@Html.ActionLink("No Firmados", "verNoFirmados", "operacion") <p></p>
+@Html.ActionLink("Nuevo Usuario", "nuevoUsuairo", "usuario")<p></p>
+@Html.ActionLink("Cerrar Sesion", "cerrarSesion", "usuario")

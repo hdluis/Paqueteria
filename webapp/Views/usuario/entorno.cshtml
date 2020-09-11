@@ -1,0 +1,53 @@
+﻿@model Entidades.eAgencia
+
+@{
+    ViewBag.Title = "entorno";
+}
+
+<h2>Seleccionar Agencia</h2>
+
+
+@using (Html.BeginForm("index","home")) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+     
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+                 <p>Agencia:</p>
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.codigo, Enumerable.Empty<SelectListItem>(), htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+  
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Avanzar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+   
+
+
+<script>
+    $(document).ready(function () {
+        // Get a list of Empresas and a list of products of the first Empresa.
+        $.getJSON('/usuario/getAgencias', null, function (data) {
+            $.each(data, function () {
+                $('#codigo').append('<option value=' +
+                    this.codigo + '>' + this.descripcion + '</option>');
+         
+            });
+
+        });
+    });
+</script>
+}

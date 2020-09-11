@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Entidades.eEnvio>
+
+@{
+    ViewBag.Title = "listar";
+}
+
+<h2>listar</h2>
+
+<p>
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.costo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+     
+   
+        <th>
+            @Html.DisplayNameFor(model => model.descCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descAgencia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.costo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+ 
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.descCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descAgencia)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.ActionLink("Regresar","index","home")
